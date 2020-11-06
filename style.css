@@ -1,0 +1,114 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 1.6rem;
+}
+.animal {
+	display: inline-block;
+	position: relative;
+}
+.animal span {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: white;
+	font-size: 2em;
+	padding: 4px;
+	font-weight: bold;
+	text-shadow: 0 0 8px black;
+}
+.animal.none img {
+	filter: grayscale(1);
+	opacity: 0.2;
+}
+.players {
+	display: flex;
+}
+.player {
+	padding: 12px;
+}
+.player.playing {
+	background: gold;
+}
+.trades {
+	display: flex;
+	flex-wrap: wrap;
+}
+.trade {
+	flex: 1 1;
+	box-shadow: 0 0 13px #0000004a;
+	margin: 8px;
+	padding: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+a img:hover {
+	opacity: 0.9;
+}
+header {
+	padding: 24px;
+	background: #4f3961;
+	color: #fff;
+	font-size: 1.5em;
+	text-align: center;
+	padding: 24px;
+}
+header button {
+	background: white;
+    padding: 8px;
+    border: none;
+    color: #4f3961;
+    font-weight: 600;
+    box-shadow: 0 0 12px black;
+    margin-top: 24px;
+    font-size: 0.9em;
+}
+header button:hover {
+	box-shadow: none;
+	cursor: pointer;
+}
+header h4 {
+	margin-top: 16px;
+	white-space: break-spaces;
+}
+#game {
+	display: flex;
+	flex-direction: column;
+}
+h1 {
+  font-size: 4rem;
+  margin-bottom: 2.42424rem;
+}
+
+h2 {
+  font-size: 3.33333rem;
+  margin-bottom: 2.0202rem;
+}
+
+ h3 {
+  font-size: 2.66667rem;
+  margin-bottom: 1.61616rem;
+}
+
+h4 {
+  font-size: 2rem;
+  margin-bottom: 1.21212rem;
+}
+
+h5 {
+  font-size: 1.33333rem;
+  margin-bottom: 0.80808rem;
+}
+
+h6 {
+  font-size: 1rem;
+  margin-bottom: 0.60606rem;
+}

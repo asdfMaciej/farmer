@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Farma</title>
+	<script src="vue.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="game">
+		<header>
+			<h2 class="current-player">Gra: {{playing}}</h2>
+
+			<article>
+				<h4>Zawartość stada głównego:</h4>
+				<animal v-for="(n, animal) in game.collection" :name="animal" :count="n">
+				</animal>
+			</article>
+
+			<button @click="nextTurn" v-if="!gameEnded">
+				{{currentlyTrading ? 'Rzuć kostką' : 'Następna tura'}}
+			</button>
+
+			<h4>{{notification}}</h4>
+		</header>
+		<main>
+			<div class="players">
+				<section class="player" v-for="(animals, player) in game.playerCollection" 
+					:class="{playing: game.turn == player}">
+					<h2>{{game.playerNames[player]}}</h2>
+					<div class="animals">
+						<animal v-for="(n, animal) in animals" :name="animal" :count="n">
+						</animal>
+					</div>
+				</section>
+			</div>
+			
+
+			<h1>{{state}}</h1>
+			
+			
+			<div v-if="currentlyRolling">
+				<h3>Ostatnie losowanie:</h3>
+				<animal v-for="name in game.lastRoll" :name="name" :count="1"></animal>
+			</div>
+			
+			<h3 v-if="currentlyTrading">Wymiana (kliknij, aby kupić):</h3>
+			<div class="trades" v-if="currentlyTrading">
+				<div class="trade" v-for="deal in game.trade">
+					<a href="#" @click.prevent="purchase(deal, 0)">
+						<animal  :name="deal[0][1]" :count="deal[0][0]"></animal>
+					</a>
+					<a href="#" @click.prevent="purchase(deal, 1)">
+						<animal :name="deal[1][1]" :count="deal[1][0]"> </animal>
+					</a>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<script id="animal-template" type="text/x-template">
+		<div class="animal" :class="{none: count == 0}">
+			<img :src="'img/'+name+'.jpg'" alt="">
+			<span v-if="count">{{count}}</span>
+		</div>
+	</script>
+	<script src="main.js"></script>
+</body>
+</html>
